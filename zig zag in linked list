@@ -1,0 +1,28 @@
+if(head==null && head.next==null)
+        return head;
+        Node z=head;
+         boolean flag=true;
+         while(z.next!=null){
+             if(flag){
+                 if(z.data>z.next.data){
+                     int t=z.data;
+                     z.data=z.next.data;
+                     z.next.data=t;
+                 }
+                 flag=!flag;
+             }
+             else
+             {
+                 if(z.data<z.next.data){
+                     int t=z.data;
+                     z.data=z.next.data;
+                     z.next.data=t;
+                 }
+                 flag=!flag;
+             }
+             z=z.next;
+             
+         }
+         return head;
+    }
+}
