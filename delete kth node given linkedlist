@@ -1,0 +1,24 @@
+ Node delete(Node head, int k)
+    {
+	 
+	if( k==0 || head==null)
+	return head;
+	if(k==1)
+	return null;
+	Node temp=head,cur=temp;
+	int c=1;
+	while(temp!=null){
+	    if(c==k){
+	         cur.next=temp.next;
+	         
+	         c=1;
+	         
+	        }
+	        else
+	        c++;
+	        cur=temp;
+	        temp=temp.next;
+	}
+	return head;
+    }
+    }
