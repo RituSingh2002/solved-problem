@@ -1,0 +1,30 @@
+public int sum(Node head, int k){
+      //write code here
+      int sum=0;
+      if(head==null || k==0){
+          return 0;
+      }
+      Node temp=head;
+      int c=1;
+      while(temp!=null){
+          c++;
+          temp=temp.next;
+      }
+      int n=c-k;
+      c=1;
+      while(head!=null){
+          if(n==c){
+          while(head!=null){
+              sum+=head.data;
+              head=head.next;
+          }
+          }
+          else{
+          head=head.next;
+          c++;
+          }
+      }
+      return sum;
+      
+    }
+}
