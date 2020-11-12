@@ -1,0 +1,22 @@
+public long multiplyTwoLists(Node l1,Node l2){
+          //add code here.
+          String s="";
+          String s1="";
+           if(l1==null && l2==null)
+           return 0;
+           Node o=l1,o1=l2;
+          while(l1!=null){
+              s+=l1.data;
+              l1=l1.next;
+          }
+          while(l2!=null){
+              s1+=l2.data;
+              l2=l2.next;
+          }
+           java.math.BigInteger m11 = new java.math.BigInteger(s);
+java.math.BigInteger m22 = new java.math.BigInteger(s1);
+java.math.BigInteger mul = m11.multiply(m22);
+java.math.BigInteger modd = new java.math.BigInteger("1000000007");
+java.math.BigInteger res = mul.mod(modd);
+Long rs = res.longValue();
+return res;
