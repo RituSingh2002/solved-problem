@@ -1,0 +1,76 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    // Complete the highestValuePalindrome function below.
+    static String highestValuePalindrome(String s, int n, int k) {
+     char a[]=s.toCharArray();
+      int l=0,r=s.length()-1;
+      String ans="";
+      while(l<r){
+          if(s.charAt(l)!=s.charAt(r)){
+              a[l]=a[r]=(char)Math.max(s.charAt(l),s.charAt(r));
+              k--;
+          }
+          l++;
+          r--;
+      }
+      if(k<0){
+          return "-1";
+      }
+      l=0;
+      r=n-1;
+      while(l<=r){
+          if(l==r){
+              if(k>0)
+              a[l]='9';
+          }
+          if(a[l]<'9'){
+          if(k>=2 && (a[l]==s.charAt(l) && a[r]==s.charAt(r))){
+              a[l]=a[r]='9';
+              k-=2;
+          }
+          else if(k>=1 && (a[l]!=s.charAt(l) || a[r]!=s.charAt(r))){
+              a[l]=a[r]='9';
+              k-=1;
+          }
+          }
+          l++;
+          r--;
+      }
+      for(int i=0;i<a.length;i++){
+          ans+=a[i];
+      }
+      return ans;
+
+    }
+
+    private static final Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) throws IOException {
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        String[] nk = scanner.nextLine().split(" ");
+
+        int n = Integer.parseInt(nk[0]);
+
+        int k = Integer.parseInt(nk[1]);
+
+        String s = scanner.nextLine();
+
+        String result = highestValuePalindrome(s, n, k);
+
+        bufferedWriter.write(result);
+        bufferedWriter.newLine();
+
+        bufferedWriter.close();
+
+        scanner.close();
+    }
+}
