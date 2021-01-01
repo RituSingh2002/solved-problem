@@ -1,0 +1,28 @@
+Node bTreeToClist(Node root)
+    {
+        //your code here
+        Vector<Integer> v = new Vector<>(); 
+        inorder(root,v);
+        Node head=new Node(v.get(0));
+        Node cur=head;
+        for(int i=1;i<v.size();i++){
+            Node temp=cur;
+            cur.right=new Node(v.get(i));
+            cur=cur.right;
+            cur.left=temp;
+        }
+        cur.right=head;
+        head.left=cur;
+        return head;
+    }
+    void inorder(Node root,Vector<Integer>v){
+        if(root==null)
+        return ;
+        inorder(root.left,v);
+        v.add(root.data);
+        inorder(root.right,v);
+         
+    }
+    
+}
+    
