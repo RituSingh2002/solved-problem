@@ -1,0 +1,36 @@
+import java.io.OutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.InputStream;
+
+
+// Remember that the class name should be "Main" and should be "public".
+public class Main {
+     public static void main(String args[]) throws IOException {
+      BufferedReader in = new BufferedReader( 
+new InputStreamReader( 
+System.in)); 
+
+      String[] input = new String[2]; 
+int cash; 
+double amount; 
+   input = in.readLine().split(" "); 
+
+       cash = Integer.parseInt(input[0]);
+         amount =Double.parseDouble(input[1]);
+        if(cash%5==0 && (double)cash+.5>amount){
+            System.out.format("%.2f",amount);
+        }
+        else if(cash%5!=0){
+            System.out.format("%.2f",amount);
+        }
+        else{
+            System.out.format("%.2f",amount-.5-cash);
+        }
+      
+     }}
